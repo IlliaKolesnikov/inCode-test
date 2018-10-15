@@ -19,9 +19,11 @@ export function getData(){
   
 }
 
-/*function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  return response;
-}*/
+export function searchUser(data){
+    return dispatch =>{
+        dispatch({
+            type: "FIND_USER",
+            payload: data
+        })
+    }
+}

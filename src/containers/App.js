@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import App from '../components/App'
-import {getData} from '../actions/userActions'
+import {getData, searchUser} from '../actions/userActions'
 
 function mapStateToProps(state){
     return {
@@ -11,7 +11,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return {
-        getData: () => dispatch(getData())
+        getData: () => dispatch(getData()),
+        searchUser: (inf) => dispatch(searchUser(inf))
     }
 }
 

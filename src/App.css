@@ -23,3 +23,7 @@
 .nomargin{
   margin: 0 !important;
 }
+
+.prompt{
+  border-radius: 0! important;
+}
