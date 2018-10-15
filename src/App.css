@@ -1,0 +1,8 @@
+.asider{
+  overflow-y: scroll;
+  height: 95vh;
+}
+
+.nopadding {
+   padding: 0 !important;
+}
