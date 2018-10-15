@@ -3,11 +3,22 @@ import {Menu, Grid, Label, Input} from 'semantic-ui-react'
 import Profile from './Profile'
 
 class App extends Component {
+
+    componentDidMount(){
+      this.props.getData()
+    }
+
      state = { activeItem: 'inbox' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render() {
-       const { activeItem } = this.state
+    const { activeItem} = this.state
+    const { /*data,*/ isFetching, isSearching, filteredData } = this.props.profile
+    if(isFetching === true){
+        return <div>Loading</div>
+    }
+      else{
+        console.log(this.props.profile)
     return (
      <Grid container className="">
         <Grid.Row columns={2}>
@@ -38,6 +49,7 @@ class App extends Component {
         </Grid.Row>
      </Grid>
     );
+      }
   }
 }
 

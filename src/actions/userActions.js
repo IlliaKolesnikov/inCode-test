@@ -5,7 +5,6 @@ export function getData(){
             type: "FETCH_PROFILE_DATA_BEGIN"
         })
         axios.get('./clients.json')
-        .then(handleErrors)
         .then(res=> res.data)
         .then(json=> {
             dispatch({
