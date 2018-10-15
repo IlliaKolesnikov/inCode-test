@@ -6,3 +6,20 @@
 .nopadding {
    padding: 0 !important;
 }
+
+.fullviewport{
+    height: 100vh;
+}
+
+.itemTo{
+  margin-top: 4.5vh!important;
+}
+
+.picSize{
+  width: 128px!important;
+  height: 128px;
+}
+
+.nomargin{
+  margin: 0 !important;
+}

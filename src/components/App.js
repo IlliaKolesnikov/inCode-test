@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Menu, Grid, Label, Input, Image} from 'semantic-ui-react'
 import Profile from './Profile'
+import LoadingScreen from './LoadingScreen'
 import '../App.css'
 class App extends Component {
 
@@ -14,7 +15,7 @@ class App extends Component {
     const { activeIndex } = this.state
     const { isFetching, filteredData } = this.props.profile
     if(isFetching === true){
-        return <div>Loading</div>
+        return <LoadingScreen />
     }
       else{
         console.log(this.props.profile)
@@ -47,10 +48,11 @@ class App extends Component {
             }
           </Menu> 
             </Grid.Column>
-            
-            <Grid.Column className="" width={12}>
-                <Profile />
-            </Grid.Column>
+            <Grid.Column className="fullviewport nopadding" stretched width={12}>
+            {filteredData/*.filter(this.isMatch)*/.length > 0 ?
+           <Profile user={filteredData/*.filter(this.isMatch)*/[this.state.activeIndex]}/> : <div>No results found</div>
+            }
+        </Grid.Column>
         </Grid.Row>
      </Grid>
     );
