@@ -12,12 +12,18 @@ class App extends Component {
         this.setState({ value, activeIndex: 0 })
         this.props.searchUser(value)
     }
+      
     state = { activeIndex: 0}
     handleItemClick = (e, { name, index }) => this.setState({ activeIndex: index })
+
   render() {
     const { activeIndex, value } = this.state
-    const { isFetching, filteredData } = this.props.profile
+    const { isFetching, filteredData, error } = this.props.profile
     if(isFetching === true){
+        return <LoadingScreen />
+    }
+    if(error != null){
+        alert(error)
         return <LoadingScreen />
     }
       else{
@@ -27,6 +33,7 @@ class App extends Component {
             <Grid.Column className="nopadding asider" width={4}>
               <Search  
                     showNoResults={false}
+                    className="focus"
                     placeholder="User search"
                     onSearchChange={this.handleSearchChange}
                     value={value}
@@ -58,7 +65,7 @@ class App extends Component {
             </Grid.Column>
             <Grid.Column className="fullviewport nopadding" stretched width={12}>
             {filteredData.length > 0 ?
-           <Profile user={filteredData[activeIndex]}/> : <div>No results found</div>
+           <Profile client={filteredData[activeIndex]}/> : <div>No results found</div>
             }
         </Grid.Column>
         </Grid.Row>

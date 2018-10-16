@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item, Grid, Image } from 'semantic-ui-react'
+import { Item, Grid} from 'semantic-ui-react'
 import '../App.css'
 
 const Profile = (props) =>{
@@ -8,14 +8,14 @@ const Profile = (props) =>{
     <Grid.Row>
     <Item.Group>
     <Item className="itemTo" >
-        <Item.Image className="picSize" src={props.user.general.avatar} />
+        <Item.Image className="picSize" src={props.client.general.avatar} />
       <Item.Content className="middle aligned">
-        <Item.Header as="h2">{props.user.general.firstName} {props.user.general.lastName}</Item.Header><br/>
-        <Item.Header as="h3">{props.user.job.title} - {props.user.job.company}</Item.Header>
-        <Item.Meta>Address: {props.user.address.country}, {props.user.address.city}, {props.user.address.street}, {props.user.address.zipCode}</Item.Meta>
+        <Item.Header as="h2">{props.client.general.firstName} {props.client.general.lastName}</Item.Header><br/>
+        <Item.Header as="h3">{props.client.job.title} - {props.client.job.company}</Item.Header>
+        <Item.Meta>Address: {props.client.address.country}, {props.client.address.city}, {props.client.address.street}, {props.client.address.zipCode}</Item.Meta>
 
         <Item.Description>
-          Mail: {props.user.contact.email}, phone number: {props.user.contact.phone}
+          Mail: {props.client.contact.email}, phone number: {props.client.contact.phone}
         </Item.Description>
       </Item.Content>
 
